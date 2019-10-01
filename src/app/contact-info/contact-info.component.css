@@ -1,0 +1,53 @@
+#content-address-info{
+  width : 680px;
+}
+
+#content-first-line {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+#content-name {
+  display: inline-block;
+  font-size: 30px;
+}
+
+#content-buttons {
+  display: inline-flex;
+  flex-direction: row;
+  flex-grow: 1;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+#content-edit img,
+#content-delete img {
+  width: 24px;
+  height: 24px;
+  margin-right: 5px;
+}
+
+#content-edit,
+#content-delete {
+ cursor : pointer;
+  margin-right: 50px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.content-line {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+}
+
+.content-phone-data {
+  margin-bottom: 20px;
+}
+
+.content-mobile-div,
+.content-landline-div {
+  display: flex;
+  flex-direction: row;
+}

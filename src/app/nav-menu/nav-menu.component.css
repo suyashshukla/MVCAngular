@@ -1,0 +1,66 @@
+/*csslint ignore:start*/
+
+@font-face {
+    font-family: Ebrima;
+    src: url("../assets/fonts/ebrimabd.ttf");
+}
+
+@font-face {
+    font-family: Gothic;
+    src: url("../assets/fonts/GOTHIC.TTF");
+}
+
+
+/*csslint ignore:end*/
+
+.header {
+    background-color: #3398CC;
+    font-family: Gothic;
+    height: 112px;
+}
+
+.header-text {
+    color: #FFFFFF;
+    font-size: 48px;
+    padding: 27px 0 27px 20px;
+}
+
+.nav-pane {
+    background-color: #323334;
+    display: flex;
+    flex-direction: row;
+}
+
+.nav-pane-image {
+    margin-right: 25px;
+    flex-grow: 1;
+    display: inline-flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.nav-pane-image img {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+}
+
+.nav-pane-list li {
+    cursor: pointer;
+    font-family: Ebrima;
+    letter-spacing: 1px;
+    color: white;
+    border-width: 0 0 0 5px;
+    border-style: solid;
+    border-color: transparent;
+    padding: 10px;
+    font-size: 14px;
+    display: inline;
+}
+
+.nav-pane-list {
+    list-style-type: none;
+    display: inline-block;
+    padding: 10px;
+    margin: 0;
+}

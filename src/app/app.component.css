@@ -1,0 +1,22 @@
+@media (max-width: 767px) {
+  /* On small screens, the nav menu spans the full width of the screen. Leave a space for it. */
+  .body-content {
+    padding-top: 50px;
+  }
+}
+
+.row{
+  margin : 20px;
+}
+
+.col-sm-4{
+  border : solid 1px lightgrey;
+  padding : 0;
+  border-collapse : collapse;
+  display : flex;
+  flex-direction : column;
+}
+
+.col-sm-8{
+  padding-left : 50px;
+}

@@ -1,0 +1,13 @@
+.content-list-data {
+  list-style-type: none;
+  cursor : pointer;
+  padding: 15px 20px;
+  margin: 0px;
+  border-width: 0 0 1px 0;
+  border-style: solid;
+  border-color: lightgray;
+}
+
+#name {
+  font-size: 24px;
+}

@@ -1,0 +1,29 @@
+<div id="content-add-address">
+
+    <form class="add-form" [formGroup]="addForm" (ngSubmit)="addNew(addForm.value)">
+
+        <label for="name">Name</label>
+        <input type="text" formControlName="name" value="{{editData.name}}">
+        <label for="email">Email</label>
+        <input type="email" formControlName="email" value="{{editData.email}}">
+
+        <div class="phone-numbers">
+            <label for="mobile">Mobile</label>
+            <label for="landline" class="label">Landline</label>
+        </div>
+
+        <div class="phone-numbers">
+            <input type="number" class="mobile" formControlName="mobile" value="{{editData.mobile}}">
+            <input type="number" class="landline" formControlName="landline" value="{{editData.landline}}">
+        </div>
+
+        <label for="website">Website</label>
+        <input type="text" formControlName="website" value="{{editData.website}}">
+        <label for="address">Address</label>
+        <textarea formControlName="address" >{{editData.address}}</textarea>
+
+        <div id="add-button-div"><button type="submit">SUBMIT</button></div>
+
+    </form>
+  
+</div>

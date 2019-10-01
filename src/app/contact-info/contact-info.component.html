@@ -1,0 +1,43 @@
+<div id="content-address-info" *ngIf="!isEmpty(details)">
+
+  <div id="content-first-line">
+    <div id="content-name">{{details.name}}</div>
+    <div id="content-buttons">
+      <div id="content-edit" (click)="editData()"><img src="assets/Edit-icon.png"><span>EDIT</span></div>
+      <div id="content-delete" (click)="deleteData()"><img src="assets/delete2.png"><span>DELETE</span></div>
+    </div>
+  </div>
+
+  <div class="content-line">
+    <div class="content-email">
+      <label for="content-email">Email :&nbsp;</label>
+      {{details.email}}
+    </div>
+  </div>
+
+  <div class="content-phone-data">
+    <div class="content-mobile-div">
+      <label for="content-mobile">Mobile :&nbsp;</label>
+      <div class="content-mobile">{{details.mobile}}</div>
+    </div>
+    <div class="content-landline-div">
+      <label for="content-landline">Landline :&nbsp;</label>
+      <div class="content-landline">{{details.landline}}</div>
+    </div>
+  </div>
+
+  <div class="content-line">
+    <label for="content-website">Website :&nbsp;</label>
+    <div class="content-website">
+      {{details.website}}
+    </div>
+  </div>
+
+  <div class="content-line">
+    <label for="content-address">Address :&nbsp;</label>
+    <div class="content-address">
+      {{details.address}}
+    </div>
+  </div>
+
+</div>

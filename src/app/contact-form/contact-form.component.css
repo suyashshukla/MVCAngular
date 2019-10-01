@@ -1,0 +1,56 @@
+#content-add-address {
+  background-color: white;
+  position: absolute;
+  top: 0;
+  padding: 25px;
+  width: 680px;
+  box-shadow: 0px 0px 100px grey;
+}
+
+  #content-add-address input,
+  #content-add-address textarea {
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+.mobile {
+  margin-right: 10px;
+}
+
+.landline {
+  margin-left: 10px;
+}
+
+.add-form {
+  display: flex;
+  flex-direction: column;
+}
+
+#add-button-div{
+  display : flex;
+  justify-content : flex-end;
+}
+
+  #add-button-div button {
+    background-color: green;
+    color: white;
+    padding: 10px 25px;
+    border: none;
+  }
+
+.label {
+  margin-left: 30px;
+}
+
+#add-button-div {
+  position: relative;
+}
+
+.phone-numbers {
+  display: inline-flex;
+}
+
+  .phone-numbers label,
+  .phone-numbers input {
+    flex-grow: 1;
+  }
