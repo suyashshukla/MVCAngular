@@ -48,6 +48,15 @@ namespace MVCAngular.Controllers
       return View(data);
     }
 
+    [HttpPost]
+    public ActionResult Edit(Home contact)
+    {
+      var dataContext = new PetaPoco.Database("sqladdress");
+      dataContext.Update("contacts", "id", contact);
+
+      return RedirectToAction("Index");
+    }
+
     [HttpGet]
     public ActionResult delete(int id)
     {
@@ -56,7 +65,6 @@ namespace MVCAngular.Controllers
       var contact = dataContext.Single<Home>("SELECT * FROM contacts WHERE id=@0", id);
 
       return View(contact);
-
     }
 
     [HttpPost]

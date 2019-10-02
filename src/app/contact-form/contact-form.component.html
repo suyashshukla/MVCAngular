@@ -1,3 +1,4 @@
+
 <div id="content-add-address">
 
     <form class="add-form" [formGroup]="addForm" (ngSubmit)="addNew(addForm.value)">
@@ -13,14 +14,14 @@
         </div>
 
         <div class="phone-numbers">
-            <input type="number" class="mobile" formControlName="mobile" value="{{editData.mobile}}">
+            <input type="number" class="mobile" formControlName="phone" value="{{editData.phone}}">
             <input type="number" class="landline" formControlName="landline" value="{{editData.landline}}">
         </div>
 
         <label for="website">Website</label>
         <input type="text" formControlName="website" value="{{editData.website}}">
         <label for="address">Address</label>
-        <textarea formControlName="address" >{{editData.address}}</textarea>
+        <textarea formControlName="address">{{editData.address}}</textarea>
 
         <div id="add-button-div"><button type="submit">SUBMIT</button></div>
 

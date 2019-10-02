@@ -1,53 +1,23 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Home } from './Home';
 
 @Injectable()
 
 export class FormService {
 
-  contacts = [
-    {
-      name: 'Suyash Shukla',
-      email: 'imsuyash97@gmail.com',
-      mobile: '8319279074',
-      landline: '7896541236',
-      address: 'Gayatri Nagar, Hyderabad',
-      website : 'www.kavyastrot.com'
-    },
-    {
-      name: 'Jimmy Jacobs',
-      email: 'jacobs@gmail.com',
-      mobile: '9896541232',
-      landline: '022541636',
-      address: 'Capetown, SA',
-      website: 'www.biz.sa'
-    },
-    {
-      name: 'Arnold Johannes',
-      email: 'swachhnegar@termite.com',
-      mobile: '9856321452',
-      landline: '2255669988',
-      address: 'Rio De Janeiro, Brazil',
-      website: 'www.bewink.com'
-    },
-    {
-      name: 'Matt Narasimgha',
-      email: 'matthew.n@slti.com',
-      mobile: '8236548954',
-      landline: '9856956523',
-      address: 'Rajapaksha, Sri Lanka',
-      website: 'www.nomad.sl'
-    },
-    {
-      name: 'Chris Tremlett',
-      email: 'chris97@gmail.com',
-      mobile: '8745963542',
-      landline: '7896541236',
-      address: 'Down Town, Britain',
-      website: 'www.ecb.co.uk'
-    }];
+  constructor(private http: HttpClient) { }
+
+
+  contacts;
 
   formVisibility = false;
-  formData = {};
+  formData: Home;
+  url = "/api/data";
+
+  syncData() {
+    return this.http.get(this.url);
+  }
 
   addContact(addC) {
     this.contacts.push(addC);
@@ -57,13 +27,37 @@ export class FormService {
     this.contacts = this.contacts.filter(c => c != removeC);
   }
 
-  showForm(fData) {
+  showForm(fData:Home) {
     this.formVisibility = true;
     this.formData = fData;
   }
 
   getContacts() {
+    this.contacts = [];
     return this.contacts;
+  }
+
+
+
+ 
+  fetchURL() {
+    return this.http.get<Home[]>(this.url)
+  }
+
+  getURL(id) {
+    return this.http.get<Home>(this.url + "/" + id);
+  }
+
+  postURL(data) {
+    return this.http.post<Home>(this.url,data);
+  }
+
+  putURL(data) {
+    return this.http.put<Home>(this.url,data);
+  }
+
+  deleteURL(data) {
+    return this.http.delete(this.url+"/"+data.id);
   }
 
   updateContact(updateC, originalC) {

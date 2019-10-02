@@ -3,6 +3,8 @@ import { FormBuilder } from '@angular/forms';
 
 import { FormService } from '../form-service';
 
+import { Home } from '../Home';
+
 
 @Component({
   selector: 'app-form',
@@ -12,64 +14,77 @@ import { FormService } from '../form-service';
 
 export class ContactForm {
 
-  @Input() editData;
-  
+  @Input() editData = new Home();
+
   @Output() closeLightBox = new EventEmitter();
 
   addForm;
-  
-  constructor(private service : FormService,
-    private formBuilder : FormBuilder){
 
-    this.addForm = this.formBuilder.group(
-      {
-        name: '',
-        email : '',
-        mobile : '',
-        landline : '',
-        website : '',
-        address : ''
-      }
+  constructor(private service: FormService,
+    private formBuilder: FormBuilder) {
+
+    this.addForm = this.formBuilder.group({
+      id: '',
+      name: '',
+      email: '',
+      phone: '',
+      landline: '',
+      address: '',
+      website : '',
+    }
     )
 
   }
 
   isVacant(obj) {
-  for (var key in obj) {
-    if (obj[key]!="")
-      return false;
+    for (var key in obj) {
+      if (obj[key] != "")
+        return false;
+    }
+    return true;
   }
-  return true;
-}
 
-  addNew(contact) {
+  addNew(contact: Home) {
 
-      var uContact = {
-        name: contact['name'] != "" ? contact['name'] : this.editData['name'],
-        email: contact['email'] != "" ? contact['email'] : this.editData['email'],
-        mobile: contact['mobile'] != "" ? contact['mobile'] : this.editData['mobile'],
-        landline: contact['landline'] != "" ? contact['landline'] : this.editData['landline'],
-        website: contact['website'] != "" ? contact['website'] : this.editData['website'],
-        address: contact['address'] != "" ? contact['address'] : this.editData['address'],
+    if (!this.isVacant(this.editData)) {
+      contact = {
+        id: this.editData.id,
+        name: contact.name != "" ? contact.name : this.editData.name,
+        phone: contact.phone != "" ? contact.phone : this.editData.phone,
+        email: contact.email != "" ? contact.email : this.editData.email,
+        address: contact.address != "" ? contact.address : this.editData.address,
+        website: contact.website != "" ? contact.website : this.editData.website,
+        landline: contact.landline != "" ? contact.landline : this.editData.landline,
+      }
+      this.service.putURL(contact).subscribe((res) => {
+        console.log("Update : " + res.toString() != "1" ? "Success" : "Fail");
+        this.addForm.reset();
+        this.editData = new Home();
+      });
     }
-
-
-
-
-    if (this.service.getContacts().indexOf(this.editData) >= 0) {
-      this.service.updateContact(uContact, this.editData);
-      this.addForm.reset();
-      this.editData = {};
+    else {
+      this.service.postURL(contact).subscribe((res) => {
+        console.log("Created: " + res.toString() != "1" ? "Success" : "Fail");
+        this.addForm.reset();
+        this.editData = new Home();
+      });
     }
-    else if (!this.isVacant(contact)) {
-      this.service.addContact(contact);
-      this.addForm.reset();
-    }
-
 
     this.closeLightBox.emit();
-    
-   
+
+
   }
 
+  generateJSON(data) {
+    return {
+      id: data.id,
+      name: data.name,
+      email: data.email,
+      phone: data.phone,
+      landline: data.landline,
+      website: data.website,
+      address: data.address
+    }
+
+  }
 }

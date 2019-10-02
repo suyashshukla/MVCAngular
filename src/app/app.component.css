@@ -9,8 +9,12 @@
   margin : 20px;
 }
 
+.contact-list {
+  border: solid 1px lightgrey;
+  border-collapse : collapse;
+}
+
 .col-sm-4{
-  border : solid 1px lightgrey;
   padding : 0;
   border-collapse : collapse;
   display : flex;

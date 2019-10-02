@@ -2,7 +2,7 @@
     <app-nav-menu (lightBox)="toggleForm()" (homeScreen)="closeForm()"></app-nav-menu>
     <div class="row">
         <div class="col-sm-4" *ngIf="dataFlag">
-            <div *ngFor="let contact of contacts">
+            <div class="contact-list" *ngFor="let contact of contacts">
                 <app-item (display)="display(contact)" [details]="contact"></app-item>
             </div>
         </div>

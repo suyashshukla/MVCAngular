@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormService } from './form-service';
+import { Home } from './Home';
 
 @Component({
   selector: 'app-root',
@@ -13,9 +14,9 @@ export class AppComponent implements OnInit {
 
   dataFlag;
 
-  infoContent;
+  infoContent: Home;
 
-  contacts = [];
+  contacts : Home[];
 
   constructor(private contactService: FormService) { }
 
@@ -24,9 +25,11 @@ export class AppComponent implements OnInit {
   }
 
   fetchData() {
-    this.contacts = this.contactService.getContacts();
-    this.infoContent = this.contactService.formData;
-    this.checkValidity();
+    this.contactService.fetchURL().subscribe((res) => {
+      this.contacts = res;
+      this.infoContent = this.contactService.formData;
+      this.checkValidity();
+    });
   }
 
   editFormVisible() {
@@ -43,12 +46,15 @@ export class AppComponent implements OnInit {
   }
 
   toggleForm() {
-    this.infoContent = {};
+    this.infoContent = new Home();
     this.formFlag = true;
   }
 
   display(contact) {
-    this.infoContent = contact;
+    console.log(contact.id);
+    this.contactService.getURL(contact.id).subscribe((res) => {
+      this.infoContent = res;
+    });
   }
 
   closeBox() {
