@@ -1,9 +1,9 @@
 <div>
     <app-nav-menu (lightBox)="toggleForm()" (homeScreen)="closeForm()"></app-nav-menu>
     <div class="row">
-        <div class="col-sm-4" *ngIf="dataFlag">
+        <div class="col-sm-4">
             <div class="contact-list" *ngFor="let contact of contacts">
-                <app-item (display)="display(contact)" [details]="contact"></app-item>
+                <app-item (display)="display(contact)" [details]="contact">No Contacts to display</app-item>
             </div>
         </div>
         <div class="col-sm-8">

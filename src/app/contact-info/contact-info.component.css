@@ -43,11 +43,11 @@
 }
 
 .content-phone-data {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
-.content-mobile-div,
-.content-landline-div {
+.content-phone-div {
+  margin-bottom : 15px;
   display: flex;
   flex-direction: row;
 }

@@ -27,7 +27,6 @@ export class ContactInfo {
       this.triggerRefresh.emit();
       this.details = new Home();
     });
-
   }
 
   isEmpty(obj) {
@@ -37,5 +36,4 @@ export class ContactInfo {
   }
   return true;
 }
-
   }

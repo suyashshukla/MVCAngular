@@ -15,30 +15,15 @@ export class FormService {
   formData: Home;
   url = "/api/data";
 
-  syncData() {
-    return this.http.get(this.url);
-  }
-
-  addContact(addC) {
-    this.contacts.push(addC);
-  }
-
-  removeContact(removeC) {
-    this.contacts = this.contacts.filter(c => c != removeC);
-  }
-
   showForm(fData:Home) {
     this.formVisibility = true;
     this.formData = fData;
   }
 
-  getContacts() {
-    this.contacts = [];
-    return this.contacts;
+  closeForm(contact:Home) {
+    this.formData = contact;
   }
-
-
-
+   
  
   fetchURL() {
     return this.http.get<Home[]>(this.url)
@@ -58,11 +43,6 @@ export class FormService {
 
   deleteURL(data) {
     return this.http.delete(this.url+"/"+data.id);
-  }
-
-  updateContact(updateC, originalC) {
-    this.contacts[this.contacts.indexOf(originalC)] = updateC;
-    this.formData = updateC;
   }
 
 }

@@ -12,8 +12,8 @@ export class AppComponent implements OnInit {
 
   formFlag = false;
 
-  dataFlag;
-
+  header = "ADDRESS BOOK";
+  
   infoContent: Home;
 
   contacts : Home[];
@@ -22,24 +22,20 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.fetchData();
+
+
   }
 
   fetchData() {
     this.contactService.fetchURL().subscribe((res) => {
       this.contacts = res;
       this.infoContent = this.contactService.formData;
-      this.checkValidity();
     });
   }
 
   editFormVisible() {
     this.formFlag = this.contactService.formVisibility;
   }
-
-  checkValidity() {
-    this.dataFlag = this.contacts.length != 0;
-  }
-
 
   closeForm() {
     this.formFlag = false;
@@ -51,7 +47,6 @@ export class AppComponent implements OnInit {
   }
 
   display(contact) {
-    console.log(contact.id);
     this.contactService.getURL(contact.id).subscribe((res) => {
       this.infoContent = res;
     });

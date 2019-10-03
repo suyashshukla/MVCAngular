@@ -23,15 +23,17 @@ export class ContactForm {
   constructor(private service: FormService,
     private formBuilder: FormBuilder) {
 
-    this.addForm = this.formBuilder.group({
+    this.addForm = this.formBuilder.group(
+      {
       id: '',
       name: '',
       email: '',
       phone: '',
       landline: '',
-      address: '',
+      address: 'Address : ' + this.editData.address,
       website : '',
     }
+
     )
 
   }
@@ -44,9 +46,22 @@ export class ContactForm {
     return true;
   }
 
+  isIncomplete(obj) {
+    var flag = false;
+    for (var key in obj) {
+      if(key == 'id')
+      continue;
+      if (obj[key] == "") {
+        flag = true;
+        break;
+      }
+    }
+    return flag;
+  }
+
   addNew(contact: Home) {
 
-    if (!this.isVacant(this.editData)) {
+    if (!this.isVacant(this.editData)) { //For checking update instance
       contact = {
         id: this.editData.id,
         name: contact.name != "" ? contact.name : this.editData.name,
@@ -60,31 +75,26 @@ export class ContactForm {
         console.log("Update : " + res.toString() != "1" ? "Success" : "Fail");
         this.addForm.reset();
         this.editData = new Home();
+        this.service.closeForm(contact);
       });
     }
-    else {
+    else if (!this.isIncomplete(contact)) {  //for checking incomplete form instance
       this.service.postURL(contact).subscribe((res) => {
         console.log("Created: " + res.toString() != "1" ? "Success" : "Fail");
         this.addForm.reset();
         this.editData = new Home();
       });
     }
-
-    this.closeLightBox.emit();
-
-
-  }
-
-  generateJSON(data) {
-    return {
-      id: data.id,
-      name: data.name,
-      email: data.email,
-      phone: data.phone,
-      landline: data.landline,
-      website: data.website,
-      address: data.address
+    else { //for checking error cases
+      window.alert("Invalid Data Entries");
     }
 
+    this.closeForm();
+    
   }
+
+  closeForm() {
+    this.closeLightBox.emit();
+  }
+
 }

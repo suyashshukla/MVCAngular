@@ -21,9 +21,9 @@
         <label for="website">Website</label>
         <input type="text" formControlName="website" value="{{editData.website}}">
         <label for="address">Address</label>
-        <textarea formControlName="address">{{editData.address}}</textarea>
-
-        <div id="add-button-div"><button type="submit">SUBMIT</button></div>
+        <input type="text" value="{{editData.address}}" class="address" formControlName="address"/>
+       
+        <div id="add-button-div"><button (click)="closeForm()">CANCEL</button><button type="submit">SUBMIT</button></div>
 
     </form>
   
