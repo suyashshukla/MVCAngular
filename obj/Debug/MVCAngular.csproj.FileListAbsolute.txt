@@ -70,3 +70,6 @@ C:\Users\suyash.s\source\repos\MVCAngular\MVCAngular\obj\Debug\MVCAngular.csproj
 C:\Users\suyash.s\source\repos\MVCAngular\MVCAngular\obj\Debug\MVCAngular.dll
 C:\Users\suyash.s\source\repos\MVCAngular\MVCAngular\obj\Debug\MVCAngular.pdb
 C:\Users\suyash.s\source\repos\MVCAngular\MVCAngular\obj\Debug\MVCAngular.csprojAssemblyReference.cache
+C:\Users\suyash.s\source\repos\MVCAngular\MVCAngular\bin\AutoMapper.dll
+C:\Users\suyash.s\source\repos\MVCAngular\MVCAngular\bin\AutoMapper.pdb
+C:\Users\suyash.s\source\repos\MVCAngular\MVCAngular\bin\AutoMapper.xml
