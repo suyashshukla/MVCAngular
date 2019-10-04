@@ -101,6 +101,7 @@ namespace MVCAngular.Controllers
     //DELETE
     [HttpDelete]
     public IHttpActionResult delete(int id)
+
     {
       var dataContext = new PetaPoco.Database("sqladdress");
       var contact = dataContext.Single<Home>("SELECT * FROM contacts WHERE id=@0", id);
