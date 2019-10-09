@@ -1,4 +1,9 @@
 using MVCAngular.App_Start;
+using MVCAngular.DI;
+using MVCAngular.Interfaces;
+using SimpleInjector;
+using SimpleInjector.Integration.WebApi;
+using SimpleInjector.Lifestyles;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +19,10 @@ namespace MVCAngular
     {
         protected void Application_Start()
         {
-            AreaRegistration.RegisterAllAreas();
+
+      
+
+      AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.registerBundle(BundleTable.Bundles);

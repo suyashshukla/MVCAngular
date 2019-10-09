@@ -62,6 +62,12 @@
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
+    <Reference Include="SimpleInjector, Version=4.7.1.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.4.7.1\lib\net45\SimpleInjector.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleInjector.Integration.WebApi, Version=4.7.1.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.Integration.WebApi.4.7.1\lib\net45\SimpleInjector.Integration.WebApi.dll</HintPath>
+    </Reference>
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
@@ -94,6 +100,9 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WebActivator, Version=1.4.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivator.1.4.4\lib\net40\WebActivator.dll</HintPath>
+    </Reference>
     <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
     </Reference>
@@ -153,13 +162,6 @@
     <Content Include="Content\edit1.jpg" />
     <Content Include="Content\nothing.png" />
     <Content Include="Content\Site.css" />
-    <Content Include="dist\MVCAngular\favicon.ico" />
-    <Content Include="dist\MVCAngular\index.html" />
-    <Content Include="dist\MVCAngular\main.js" />
-    <Content Include="dist\MVCAngular\polyfills.js" />
-    <Content Include="dist\MVCAngular\runtime.js" />
-    <Content Include="dist\MVCAngular\styles.js" />
-    <Content Include="dist\MVCAngular\vendor.js" />
     <Content Include="dist\out-tsc\e2e\src\app.e2e-spec.js" />
     <Content Include="dist\out-tsc\e2e\src\app.po.js" />
     <Content Include="dist\out-tsc\src\app\app-routing.module.js" />
@@ -192,13 +194,7 @@
     <Content Include="Models\Generated\PetaPoco.Core.ttinclude" />
     <Content Include="ebrimabd.ttf" />
     <Content Include="GOTHIC.TTF" />
-    <Content Include="dist\MVCAngular\ebrimabd.ttf" />
-    <Content Include="dist\MVCAngular\GOTHIC.TTF" />
-    <Content Include="dist\MVCAngular\main.js.map" />
-    <Content Include="dist\MVCAngular\polyfills.js.map" />
-    <Content Include="dist\MVCAngular\runtime.js.map" />
-    <Content Include="dist\MVCAngular\styles.js.map" />
-    <Content Include="dist\MVCAngular\vendor.js.map" />
+    <Content Include="assets\mock_contacts.json" />
     <Content Include="dist\out-tsc\e2e\src\app.e2e-spec.js.map" />
     <Content Include="dist\out-tsc\e2e\src\app.po.js.map" />
     <Content Include="dist\out-tsc\src\app\app-routing.module.js.map" />
@@ -255,12 +251,17 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\SimpleInjectorWebApiInitializer.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\DataController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="DI\API_Access.cs" />
+    <Compile Include="DI\IDB.cs" />
+    <Compile Include="DI\IDB_Access.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="DI\IAPI.cs" />
     <Compile Include="Models\Generated\Database.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -298,6 +299,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="src\assets\mock_contacts.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

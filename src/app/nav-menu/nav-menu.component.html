@@ -3,13 +3,18 @@
 </div>
 <div class="nav-pane">
 
-    <ul class="nav-pane-list">
-        <li id="active" (click)="homeScreen.emit()">HOME</li>
-        <li id="add-item" (click)="lightBox.emit()">+ADD</li>
-    </ul>
+  <ul class="nav-pane-list">
+    <li id="active" (click)="homeScreen.emit()">HOME</li>
+    <li id="add-item" (click)="lightBox.emit()">+ADD</li>
+    <li id="add-mock" (click)="mockData.emit()">MOCK DATA</li>
+    <li id="add-mock" (click)="deleteData.emit()">DELETE DATA</li>
+  </ul>
 
-    <div class="nav-pane-image">
-        <img src="/assets/blog-icon.png">
-    </div>
+  <input *ngIf="inputFlag" type="number" placeholder="No. of entries.." />
+  <button *ngIf="inputFlag">SUBMIT</button>
+
+  <div class="nav-pane-image">
+    <img src="/assets/edit.png">
+  </div>
 
 </div>

@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
 
   formFlag = false;
 
-  header = "ADDRESS BOOK";
+  header = "ADD BOOK";
   
   infoContent: Home;
 
@@ -22,15 +22,36 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.fetchData();
-
-
   }
 
   fetchData() {
-    this.contactService.fetchURL().subscribe((res) => {
+    this.contacts = [];
+    this.contactService.fetchURL().subscribe((res: Home[]) => {
       this.contacts = res;
       this.infoContent = this.contactService.formData;
     });
+  }
+
+  addMockData() {
+    this.contactService.getMock().subscribe((res: Home[]) => {
+
+      var data = res.slice(0, 51);
+
+      data.forEach(response => {
+        this.contactService.postURL(response).subscribe((result) => {
+          console.log(response.name + " Added");
+          this.fetchData();
+        })
+      });
+    });
+  }
+
+  deleteContacts() {
+    this.contacts.forEach((contact) => {
+      this.contactService.deleteURL(contact).subscribe((response) => {
+        console.log(contact.name + " Deleted");
+      })
+    })
   }
 
   editFormVisible() {
@@ -54,7 +75,7 @@ export class AppComponent implements OnInit {
 
   closeBox() {
     this.formFlag = false;
-    this.fetchData();
+    this.ngOnInit();
   }
 
 }

@@ -45,4 +45,9 @@ export class FormService {
     return this.http.delete(this.url+"/"+data.id);
   }
 
+  getMock() {
+    return this.http.get('/assets/mock_contacts.json');
+  }
+
+
 }

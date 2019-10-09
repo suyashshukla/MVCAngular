@@ -73,9 +73,6 @@ C:\Users\suyash.s\source\repos\MVCAngular\MVCAngular\obj\Debug\MVCAngular.csproj
 C:\Users\suyash.s\source\repos\MVCAngular\MVCAngular\bin\AutoMapper.dll
 C:\Users\suyash.s\source\repos\MVCAngular\MVCAngular\bin\AutoMapper.pdb
 C:\Users\suyash.s\source\repos\MVCAngular\MVCAngular\bin\AutoMapper.xml
-C:\Users\suyash.s\Desktop\Sherlock\MVCAngular\MVCAngular\obj\Debug\MVCAngular.csprojAssemblyReference.cache
-C:\Users\suyash.s\Desktop\Sherlock\MVCAngular\MVCAngular\obj\Debug\MVCAngular.dll
-C:\Users\suyash.s\Desktop\Sherlock\MVCAngular\MVCAngular\obj\Debug\MVCAngular.pdb
 C:\Users\suyash.s\Desktop\Sherlock\MVCAngular\MVCAngular\bin\MVCAngular.dll.config
 C:\Users\suyash.s\Desktop\Sherlock\MVCAngular\MVCAngular\bin\MVCAngular.dll
 C:\Users\suyash.s\Desktop\Sherlock\MVCAngular\MVCAngular\bin\MVCAngular.pdb
@@ -148,3 +145,11 @@ C:\Users\suyash.s\Desktop\Sherlock\MVCAngular\MVCAngular\bin\System.Web.Http.Web
 C:\Users\suyash.s\Desktop\Sherlock\MVCAngular\MVCAngular\bin\System.Web.Optimization.xml
 C:\Users\suyash.s\Desktop\Sherlock\MVCAngular\MVCAngular\obj\Debug\MVCAngular.csproj.CoreCompileInputs.cache
 C:\Users\suyash.s\Desktop\Sherlock\MVCAngular\MVCAngular\obj\Debug\MVCAngular.csproj.CopyComplete
+C:\Users\suyash.s\Desktop\Sherlock\MVCAngular\MVCAngular\obj\Debug\MVCAngular.dll
+C:\Users\suyash.s\Desktop\Sherlock\MVCAngular\MVCAngular\obj\Debug\MVCAngular.pdb
+C:\Users\suyash.s\Desktop\Sherlock\MVCAngular\MVCAngular\obj\Debug\MVCAngular.csprojAssemblyReference.cache
+C:\Users\suyash.s\Desktop\Sherlock\MVCAngular\MVCAngular\bin\SimpleInjector.dll
+C:\Users\suyash.s\Desktop\Sherlock\MVCAngular\MVCAngular\bin\SimpleInjector.Integration.WebApi.dll
+C:\Users\suyash.s\Desktop\Sherlock\MVCAngular\MVCAngular\bin\WebActivator.dll
+C:\Users\suyash.s\Desktop\Sherlock\MVCAngular\MVCAngular\bin\SimpleInjector.xml
+C:\Users\suyash.s\Desktop\Sherlock\MVCAngular\MVCAngular\bin\SimpleInjector.Integration.WebApi.xml

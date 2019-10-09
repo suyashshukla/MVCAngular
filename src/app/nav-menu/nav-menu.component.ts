@@ -9,22 +9,29 @@ export class NavMenuComponent implements OnInit {
 
   @Output() lightBox = new EventEmitter();
   @Output() homeScreen = new EventEmitter();
+  @Output() mockData = new EventEmitter();
+  @Output() deleteData = new EventEmitter();
+  @Output() mockInput = new EventEmitter();
+
+  inputFlag = false;
 
   header = "ADDRESS BOOK";
   length = this.header.length;
   
   index = 0;
 
-  text = "";
+  text = this.header;
 
   ngOnInit() {
 
-    setInterval(() => {
-      this.text = this.text + this.header[this.index++];
-      if (this.index == this.length)
-        clearInterval(1);
-    }, 250);
+    //setinterval(() => {
+    //  this.text = this.text + this.header[this.index++];
+    //  if (this.index == this.length)
+    //    clearinterval(1);
+    //}, 250);
 
   }
+
+
 
 }

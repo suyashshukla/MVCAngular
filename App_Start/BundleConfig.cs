@@ -25,7 +25,7 @@ namespace MVCAngular.App_Start
       //  "~/dist/MVCAngular/polyfills-es2015.js"
       //  );
 
-      scriptBundle.IncludeDirectory("~/dist/MVCAngular/", "*.js", true);
+      //scriptBundle.IncludeDirectory("~/dist/MVCAngular/", "*.js", true);
 
       bundles.Add(scriptBundle);
     }
