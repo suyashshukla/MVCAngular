@@ -1,5 +1,6 @@
 import { Component,Output, EventEmitter, Input } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { FormService } from '../form-service';
 
@@ -21,7 +22,9 @@ export class ContactForm {
   addForm;
 
   constructor(private service: FormService,
-    private formBuilder: FormBuilder) {
+    private router : Router,
+      private formBuilder: FormBuilder) {
+
 
     this.addForm = this.formBuilder.group(
       {
@@ -30,7 +33,7 @@ export class ContactForm {
       email: '',
       phone: '',
       landline: '',
-      address: 'Address : ' + this.editData.address,
+      address: '',
       website : '',
     }
 
@@ -61,6 +64,8 @@ export class ContactForm {
 
   addNew(contact: Home) {
 
+      console.log(this.editData);
+
     if (!this.isVacant(this.editData)) { //For checking update instance
       contact = {
         id: this.editData.id,
@@ -71,6 +76,7 @@ export class ContactForm {
         website: contact.website != "" ? contact.website : this.editData.website,
         landline: contact.landline != "" ? contact.landline : this.editData.landline,
       }
+
       this.service.putURL(contact).subscribe((res) => {
         console.log("Update : " + res.toString() != "1" ? "Success" : "Fail");
         this.addForm.reset();
@@ -94,7 +100,7 @@ export class ContactForm {
   }
 
   closeForm() {
-    this.closeLightBox.emit();
+    this.router.navigate(['']);
   }
 
 }

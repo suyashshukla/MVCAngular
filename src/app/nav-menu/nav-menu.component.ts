@@ -12,11 +12,14 @@ export class NavMenuComponent implements OnInit {
   @Output() mockData = new EventEmitter();
   @Output() deleteData = new EventEmitter();
   @Output() mockInput = new EventEmitter();
+  @Output() updateData = new EventEmitter();
 
   inputFlag = false;
 
   header = "ADDRESS BOOK";
   length = this.header.length;
+
+  query:string = "";
   
   index = 0;
 
@@ -29,7 +32,10 @@ export class NavMenuComponent implements OnInit {
     //  if (this.index == this.length)
     //    clearinterval(1);
     //}, 250);
+  }
 
+  event() {
+    this.updateData.emit({ query: this.query});
   }
 
 

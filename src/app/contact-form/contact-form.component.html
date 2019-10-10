@@ -1,7 +1,7 @@
 
 <div id="content-add-address">
 
-    <form class="add-form" [formGroup]="addForm" (ngSubmit)="addNew(addForm.value)">
+    <form class="add-form" [formGroup]="addForm" (ngSubmit)="addNew(addForm.value)" autocomplete="off">
 
         <label for="name">Name</label>
         <input type="text" formControlName="name" value="{{editData.name}}">

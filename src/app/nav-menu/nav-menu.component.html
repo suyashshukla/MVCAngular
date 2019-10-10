@@ -4,17 +4,18 @@
 <div class="nav-pane">
 
   <ul class="nav-pane-list">
-    <li id="active" (click)="homeScreen.emit()">HOME</li>
+    <li id="active" (click)="homeScreen.emit()">
+      HOME
+    </li>
     <li id="add-item" (click)="lightBox.emit()">+ADD</li>
     <li id="add-mock" (click)="mockData.emit()">MOCK DATA</li>
     <li id="add-mock" (click)="deleteData.emit()">DELETE DATA</li>
   </ul>
 
-  <input *ngIf="inputFlag" type="number" placeholder="No. of entries.." />
-  <button *ngIf="inputFlag">SUBMIT</button>
+      <input id="search-box" type="search" placeholder="Search for Contacts" [(ngModel)]="query" (keyup)="event()"/>
 
   <div class="nav-pane-image">
-    <img src="/assets/edit.png">
+    <img src="/assets/blog-icon.png">
   </div>
 
 </div>

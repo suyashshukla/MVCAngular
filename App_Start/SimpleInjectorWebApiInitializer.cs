@@ -29,11 +29,9 @@ namespace MVCAngular.App_Start
      
         private static void InitializeContainer(Container container)
         {
-      container.Register<IAPI, API_Access>(Lifestyle.Scoped);
-      container.Register<IDB, IDB_Access>(Lifestyle.Scoped);
-
-      // For instance:
-      // container.Register<IUserRepository, SqlUserRepository>(Lifestyle.Scoped);
+       
+      container.Register<IAPIService, API_Access>(Lifestyle.Scoped);
+      container.Register<IDB_Interface, IDB_Access>(Lifestyle.Scoped);
     }
     }
 }

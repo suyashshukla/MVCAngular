@@ -8,7 +8,6 @@ export class FormService {
 
   constructor(private http: HttpClient) { }
 
-
   contacts;
 
   formVisibility = false;
@@ -26,8 +25,8 @@ export class FormService {
    
  
   fetchURL() {
-    return this.http.get<Home[]>(this.url)
-  }
+      return this.http.get<Home[]>(this.url);
+    }
 
   getURL(id) {
     return this.http.get<Home>(this.url + "/" + id);
@@ -48,6 +47,11 @@ export class FormService {
   getMock() {
     return this.http.get('/assets/mock_contacts.json');
   }
+
+  queryList(query) {
+    return this.http.get(this.url + "?query=" + query);
+  }
+  
 
 
 }

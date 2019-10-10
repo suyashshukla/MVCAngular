@@ -11,9 +11,9 @@ namespace MVCAngular.Controllers
 {
   public class DataController : ApiController
   {
-    IAPI IAPIInterface;
+    IAPIService IAPIInterface;
 
-    public DataController(IAPI IAPIInterface)
+    public DataController(IAPIService IAPIInterface)
     {
       this.IAPIInterface = IAPIInterface;
     }
@@ -25,7 +25,15 @@ namespace MVCAngular.Controllers
       return IAPIInterface.getAllContacts();
     }
 
-    //READ
+
+    public IEnumerable<Home> getSomeContacts(string query)
+    {
+      return IAPIInterface.getQueryContacts(query);
+    }
+
+    //READ SOME
+
+    //READ ONE
     [HttpGet]
     public IHttpActionResult getContact(int id)
     {

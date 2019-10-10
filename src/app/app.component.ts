@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormService } from './form-service';
+import { FormService} from './form-service';
 import { Home } from './Home';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +19,8 @@ export class AppComponent implements OnInit {
 
   contacts : Home[];
 
-  constructor(private contactService: FormService) { }
+  constructor(private contactService: FormService,
+    private router: Router) { }
 
   ngOnInit() {
     this.fetchData();
@@ -35,7 +37,7 @@ export class AppComponent implements OnInit {
   addMockData() {
     this.contactService.getMock().subscribe((res: Home[]) => {
 
-      var data = res.slice(0, 51);
+      var data = res.slice(0, 21);
 
       data.forEach(response => {
         this.contactService.postURL(response).subscribe((result) => {
@@ -50,6 +52,7 @@ export class AppComponent implements OnInit {
     this.contacts.forEach((contact) => {
       this.contactService.deleteURL(contact).subscribe((response) => {
         console.log(contact.name + " Deleted");
+        this.fetchData();
       })
     })
   }
@@ -60,11 +63,11 @@ export class AppComponent implements OnInit {
 
   closeForm() {
     this.formFlag = false;
+    this.router.navigate(['']);
   }
 
   toggleForm() {
-    this.infoContent = new Home();
-    this.formFlag = true;
+    this.router.navigate(['forms']);
   }
 
   display(contact) {
@@ -74,8 +77,21 @@ export class AppComponent implements OnInit {
   }
 
   closeBox() {
-    this.formFlag = false;
-    this.ngOnInit();
+    this.router.navigate(['']);
+    this.fetchData();
+  }
+
+  updateList(query) {
+    this.contactService.queryList(query.query).subscribe((response:Home[]) => {
+      this.contacts = response;
+    }
+      )
+  };
+
+  routerLink(id) {
+
+    this.router.navigate(['/contact',id]);
+
   }
 
 }

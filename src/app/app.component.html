@@ -1,16 +1,17 @@
 <div>
-    <app-nav-menu (lightBox)="toggleForm()" (homeScreen)="closeForm()" (mockData)="addMockData()" (deleteData)="deleteContacts()"></app-nav-menu>
+    <app-nav-menu (lightBox)="toggleForm()" (homeScreen)="closeForm()" (mockData)="addMockData()" (deleteData)="deleteContacts()" (updateData)="updateList($event)"></app-nav-menu>
     <div class="row">
         <div class="col-sm-4">
             <div class="contact-list" *ngFor="let contact of contacts">
-                          <app-item (display)="display(contact)" [details]="contact">No Contacts to display</app-item>
+                          <app-item (display)="display(contact)" [details]="contact" (click)="routerLink(contact.id)">No Contacts to display</app-item>
             </div>
         </div>
         <div class="col-sm-8">
-            <app-info [details]="infoContent" (triggerRefresh)="fetchData()" (triggerForm)="editFormVisible()"></app-info>
-            <div *ngIf="formFlag">
-                <app-form (closeLightBox)="closeBox()" [editData]="infoContent"></app-form>
-            </div>
+          <router-outlet></router-outlet>
+          <!--<app-info [details]="infoContent" (triggerRefresh)="fetchData()" (triggerForm)="editFormVisible()"></app-info>-->
+          <div *ngIf="formFlag">
+            <app-form (closeLightBox)="closeBox()" [editData]="infoContent"></app-form>
+          </div>
         </div>
     </div>
 </div>

@@ -6,7 +6,7 @@ using MVCAngular.Models;
 
 namespace MVCAngular.DI
 {
-  public class IDB_Access : IDB
+  public class IDB_Access : IDB_Interface
   {
 
     PetaPoco.Database dataContext = new PetaPoco.Database("sqladdress");
@@ -18,7 +18,7 @@ namespace MVCAngular.DI
 
     public bool delete(int id)
     {
-      throw new NotImplementedException();
+      return dataContext.Delete(read(id)) == 1;
     }
 
     public IEnumerable<Home> list()
@@ -31,9 +31,17 @@ namespace MVCAngular.DI
       return dataContext.Single<Home>("SELECT * FROM contacts WHERE id=@0", id);
     }
 
+    public IEnumerable<Home> suggestionList(string query)
+    {
+      return dataContext.Query<Home>("SELECT * FROM contacts WHERE name LIKE '%"+query+"%'");
+    }
+
     public bool update(Home contact)
     {
       return dataContext.Update(contact)==1;
     }
+
+
+
   }
 }

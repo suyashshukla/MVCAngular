@@ -8,12 +8,12 @@ using System.Web.Http;
 
 namespace MVCAngular.DI
 {
-  public class API_Access : IAPI
+  public class API_Access : IAPIService
   {
 
-    IDB database;
+    IDB_Interface database;
 
-    public API_Access(IDB database)
+    public API_Access(IDB_Interface database)
     {
       this.database = database;
     }
@@ -53,6 +53,12 @@ namespace MVCAngular.DI
       return database.delete(id);
     }
 
+    public IEnumerable<Home> getQueryContacts(string query)
+    {
+      return database.suggestionList(query);
+    }
+
+   
   }
 
 

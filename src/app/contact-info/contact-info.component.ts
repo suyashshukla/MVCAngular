@@ -1,4 +1,5 @@
-import { Component, Input, Output, EventEmitter} from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormService } from '../form-service';
 import { Home } from '../Home';
 @Component({
@@ -9,9 +10,22 @@ import { Home } from '../Home';
 
 export class ContactInfo {
 
-  constructor(private services: FormService) {}
+  id;
+  details;
 
-  @Input() details = new Home();
+  constructor(private services: FormService,
+    private router: ActivatedRoute,
+    private route: Router
+  ) {
+    router.paramMap.subscribe((data) => {
+      this.id = data.get('id');
+      this.services.getURL(this.id).subscribe((contact) => {
+        this.details = contact;
+      });
+    })
+  }
+
+  
   @Output() triggerRefresh = new EventEmitter();
   @Output() triggerForm = new EventEmitter();
 
@@ -24,7 +38,6 @@ export class ContactInfo {
   deleteData() {
     this.services.deleteURL(this.details).subscribe((res) => {
       console.log("Delete : " + res.toString() == "1" ? "Success" : "Fail : ");
-      this.triggerRefresh.emit();
       this.details = new Home();
     });
   }

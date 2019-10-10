@@ -24,7 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <TypeScriptToolsVersion>3.1</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>3.6</TypeScriptToolsVersion>
     <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -224,6 +224,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="src\app\app.component.css" />
     <Content Include="src\app\app.component.html" />
+    <Content Include="src\app\blank\blank.component.html" />
     <Content Include="src\app\contact-form\contact-form.component.css" />
     <Content Include="src\app\contact-form\contact-form.component.html" />
     <Content Include="src\app\contact-info\contact-info.component.css" />
@@ -256,12 +257,12 @@
     <Compile Include="Controllers\DataController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DI\API_Access.cs" />
-    <Compile Include="DI\IDB.cs" />
+    <Compile Include="DI\IDB_Interface.cs" />
     <Compile Include="DI\IDB_Access.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="DI\IAPI.cs" />
+    <Compile Include="DI\IAPIService.cs" />
     <Compile Include="Models\Generated\Database.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -317,6 +318,7 @@
     <TypeScriptCompile Include="src\app\app.component.spec.ts" />
     <TypeScriptCompile Include="src\app\app.component.ts" />
     <TypeScriptCompile Include="src\app\app.module.ts" />
+    <TypeScriptCompile Include="src\app\blank\blank.component.ts" />
     <TypeScriptCompile Include="src\app\contact-details.ts" />
     <TypeScriptCompile Include="src\app\contact-form\contact-form.component.ts" />
     <TypeScriptCompile Include="src\app\contact-info\contact-info.component.ts" />
