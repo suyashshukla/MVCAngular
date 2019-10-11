@@ -94,7 +94,7 @@ export class AppComponent implements OnInit {
 
   routerLink(id) {
 
-    this.router.navigate(['/contact',id]);
+    this.router.navigate(['contact',id]);
 
   }
 
