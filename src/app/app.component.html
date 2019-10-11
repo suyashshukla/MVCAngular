@@ -2,8 +2,13 @@
     <app-nav-menu (lightBox)="toggleForm()" (homeScreen)="closeForm()" (mockData)="addMockData()" (deleteData)="deleteContacts()" (updateData)="updateList($event)"></app-nav-menu>
     <div class="row">
         <div class="col-sm-4">
+          <div *ngIf="contacts.length==0">
+            <div class="text-center"><img class="text-center" src="/assets/nothing.png" /></div>
+            <h3 class="text-center">No Contacts Found!</h3>
+          </div>
+
             <div class="contact-list" *ngFor="let contact of contacts">
-                          <app-item (display)="display(contact)" [details]="contact" (click)="routerLink(contact.id)">No Contacts to display</app-item>
+                          <app-item (display)="display(contact)" [details]="contact" (click)="routerLink(contact.id)"></app-item>
             </div>
         </div>
         <div class="col-sm-8">

@@ -1,6 +1,6 @@
 import { Component,Output, EventEmitter, Input } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { FormService } from '../form-service';
 
@@ -16,28 +16,36 @@ import { Home } from '../Home';
 export class ContactForm {
 
   @Input() editData = new Home();
-
-  @Output() closeLightBox = new EventEmitter();
-
+  
   addForm;
 
   constructor(private service: FormService,
-    private router : Router,
+    private router: Router,
+    private activated : ActivatedRoute,
       private formBuilder: FormBuilder) {
 
 
     this.addForm = this.formBuilder.group(
       {
-      id: '',
-      name: '',
-      email: '',
-      phone: '',
-      landline: '',
-      address: '',
-      website : '',
-    }
+        id: '',
+        name: '',
+        email: '',
+        phone: '',
+        landline: '',
+        address: '',
+        website: '',
+      }
+    );
 
-    )
+    this.activated.paramMap.subscribe((params) => {
+
+      if (params) {
+        this.service.getURL(params.get('id')).subscribe((data) => {
+          this.editData = data;
+        })
+
+      }
+    });
 
   }
 
@@ -50,6 +58,7 @@ export class ContactForm {
   }
 
   isIncomplete(obj) {
+
     var flag = false;
     for (var key in obj) {
       if(key == 'id')
@@ -63,8 +72,6 @@ export class ContactForm {
   }
 
   addNew(contact: Home) {
-
-      console.log(this.editData);
 
     if (!this.isVacant(this.editData)) { //For checking update instance
       contact = {
@@ -96,11 +103,11 @@ export class ContactForm {
     }
 
     this.closeForm();
-    
   }
 
   closeForm() {
     this.router.navigate(['']);
+    this.service.refreshRoot();
   }
 
 }

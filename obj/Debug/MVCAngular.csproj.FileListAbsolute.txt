@@ -124,13 +124,11 @@ C:\Users\suyash.s\Desktop\Sherlock\MVCAngular\MVCAngular\bin\roslyn\VBCSCompiler
 C:\Users\suyash.s\Desktop\Sherlock\MVCAngular\MVCAngular\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\suyash.s\Desktop\Sherlock\MVCAngular\MVCAngular\bin\Antlr3.Runtime.dll
 C:\Users\suyash.s\Desktop\Sherlock\MVCAngular\MVCAngular\bin\AutoMapper.dll
-C:\Users\suyash.s\Desktop\Sherlock\MVCAngular\MVCAngular\bin\Microsoft.Owin.dll
 C:\Users\suyash.s\Desktop\Sherlock\MVCAngular\MVCAngular\bin\Newtonsoft.Json.dll
 C:\Users\suyash.s\Desktop\Sherlock\MVCAngular\MVCAngular\bin\Owin.dll
 C:\Users\suyash.s\Desktop\Sherlock\MVCAngular\MVCAngular\bin\SimpleInjector.dll
 C:\Users\suyash.s\Desktop\Sherlock\MVCAngular\MVCAngular\bin\System.Net.Http.Formatting.dll
 C:\Users\suyash.s\Desktop\Sherlock\MVCAngular\MVCAngular\bin\System.Web.Http.dll
-C:\Users\suyash.s\Desktop\Sherlock\MVCAngular\MVCAngular\bin\System.Web.Http.Owin.dll
 C:\Users\suyash.s\Desktop\Sherlock\MVCAngular\MVCAngular\bin\System.Web.Http.WebHost.dll
 C:\Users\suyash.s\Desktop\Sherlock\MVCAngular\MVCAngular\bin\System.Web.Optimization.dll
 C:\Users\suyash.s\Desktop\Sherlock\MVCAngular\MVCAngular\bin\WebActivator.dll
@@ -138,12 +136,10 @@ C:\Users\suyash.s\Desktop\Sherlock\MVCAngular\MVCAngular\bin\WebGrease.dll
 C:\Users\suyash.s\Desktop\Sherlock\MVCAngular\MVCAngular\bin\Antlr3.Runtime.pdb
 C:\Users\suyash.s\Desktop\Sherlock\MVCAngular\MVCAngular\bin\AutoMapper.pdb
 C:\Users\suyash.s\Desktop\Sherlock\MVCAngular\MVCAngular\bin\AutoMapper.xml
-C:\Users\suyash.s\Desktop\Sherlock\MVCAngular\MVCAngular\bin\Microsoft.Owin.xml
 C:\Users\suyash.s\Desktop\Sherlock\MVCAngular\MVCAngular\bin\Newtonsoft.Json.xml
 C:\Users\suyash.s\Desktop\Sherlock\MVCAngular\MVCAngular\bin\SimpleInjector.xml
 C:\Users\suyash.s\Desktop\Sherlock\MVCAngular\MVCAngular\bin\System.Net.Http.Formatting.xml
 C:\Users\suyash.s\Desktop\Sherlock\MVCAngular\MVCAngular\bin\System.Web.Http.xml
-C:\Users\suyash.s\Desktop\Sherlock\MVCAngular\MVCAngular\bin\System.Web.Http.Owin.xml
 C:\Users\suyash.s\Desktop\Sherlock\MVCAngular\MVCAngular\bin\System.Web.Http.WebHost.xml
 C:\Users\suyash.s\Desktop\Sherlock\MVCAngular\MVCAngular\bin\System.Web.Optimization.xml
 C:\Users\suyash.s\Desktop\Sherlock\MVCAngular\MVCAngular\obj\Debug\MVCAngular.csproj.CoreCompileInputs.cache

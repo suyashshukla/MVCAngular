@@ -12,7 +12,7 @@
     <li id="add-mock" (click)="deleteData.emit()">DELETE DATA</li>
   </ul>
 
-      <input id="search-box" type="search" placeholder="Search for Contacts" [(ngModel)]="query" (keyup)="event()"/>
+      <input id="search-box" type="search" placeholder="Search for Contacts" [(ngModel)]="query" (keypress)="event()"/>
 
   <div class="nav-pane-image">
     <img src="/assets/blog-icon.png">

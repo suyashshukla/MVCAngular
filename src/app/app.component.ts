@@ -23,6 +23,11 @@ export class AppComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
+
+    this.contactService.refreshDB.subscribe((event) => {
+      this.fetchData();
+    })
+
     this.fetchData();
   }
 
@@ -30,7 +35,6 @@ export class AppComponent implements OnInit {
     this.contacts = [];
     this.contactService.fetchURL().subscribe((res: Home[]) => {
       this.contacts = res;
-      this.infoContent = this.contactService.formData;
     });
   }
 

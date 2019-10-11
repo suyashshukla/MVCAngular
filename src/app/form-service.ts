@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable,Output,EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Home } from './Home';
 
@@ -6,7 +6,10 @@ import { Home } from './Home';
 
 export class FormService {
 
+  @Output() refreshDB = new EventEmitter();
+
   constructor(private http: HttpClient) { }
+
 
   contacts;
 
@@ -50,6 +53,10 @@ export class FormService {
 
   queryList(query) {
     return this.http.get(this.url + "?query=" + query);
+  }
+
+  refreshRoot() {
+    this.refreshDB.emit();
   }
   
 

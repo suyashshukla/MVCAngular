@@ -1,0 +1,9 @@
+.vertical-denter{
+  height : 100%;
+  display : flex;
+  align-items : center;
+}
+
+body{
+  height : 100%;
+}

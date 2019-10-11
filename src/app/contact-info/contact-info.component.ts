@@ -11,7 +11,7 @@ import { Home } from '../Home';
 export class ContactInfo {
 
   id;
-  details;
+  details:Home;
 
   constructor(private services: FormService,
     private router: ActivatedRoute,
@@ -25,20 +25,17 @@ export class ContactInfo {
     })
   }
 
-  
-  @Output() triggerRefresh = new EventEmitter();
-  @Output() triggerForm = new EventEmitter();
 
   editData() {
     console.log("address = " + this.details.address);
-    this.services.showForm(this.details);
-    this.triggerForm.emit();
+    this.route.navigate(['forms/',this.id]);
   }
 
   deleteData() {
     this.services.deleteURL(this.details).subscribe((res) => {
       console.log("Delete : " + res.toString() == "1" ? "Success" : "Fail : ");
-      this.details = new Home();
+      this.route.navigate(['']);
+      this.services.refreshRoot();
     });
   }
 
