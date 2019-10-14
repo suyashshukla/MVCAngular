@@ -249,25 +249,28 @@
     <Content Include="Views\Home\delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\AutoMapperInitializer.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\SimpleInjectorWebApiInitializer.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\DataController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="DI\API_Access.cs" />
-    <Compile Include="DI\IDB_Interface.cs" />
-    <Compile Include="DI\IDB_Access.cs" />
+    <Compile Include="DI\ContactService.cs" />
+    <Compile Include="DI\AutoMapperService.cs" />
+    <Compile Include="DI\DataInterface.cs" />
+    <Compile Include="DI\DataService.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="DI\IAPIService.cs" />
+    <Compile Include="DI\ContactInterface.cs" />
     <Compile Include="Models\Generated\Database.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Home.cs" />
+    <Compile Include="Models\Contacts.cs" />
+    <Compile Include="Models\ContactsMapper.cs" />
     <Compile Include="Models\PetaPoco.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />

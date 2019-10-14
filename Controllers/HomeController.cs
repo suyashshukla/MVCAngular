@@ -1,6 +1,9 @@
+using AutoMapper;
+using MVCAngular.App_Start;
 using MVCAngular.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -17,9 +20,10 @@ namespace MVCAngular.Controllers
 
     public ActionResult DBView()
     {
+
       var dataContext = new PetaPoco.Database("sqladdress");
       
-      var contacts = dataContext.Query<Home>("SELECT * FROM contacts;");
+      var contacts = dataContext.Query<Contacts>("SELECT * FROM contacts;");
 
       return View(contacts);
 
@@ -31,8 +35,15 @@ namespace MVCAngular.Controllers
     }
 
     [HttpPost]
-    public ActionResult Create(Home contact)
+    public ActionResult Create(ContactsMapper mContact)
     {
+
+      IMapper mapper = AutoMapperInitializer.getMapper();
+
+      var contact = mapper.Map<Contacts>(mContact);
+
+      var back = mapper.Map<ContactsMapper>(contact);
+
       var dataContext = new PetaPoco.Database("sqladdress");
       dataContext.Insert(contact);
 
@@ -42,14 +53,16 @@ namespace MVCAngular.Controllers
 
     public ActionResult Edit(int id)
     {
+
       var dataContext = new PetaPoco.Database("sqladdress");
-      var data = dataContext.Single<Home>("SELECT * FROM contacts WHERE id=@0",id);
+      var data = dataContext.Single<Contacts>("SELECT * FROM contacts WHERE id=@0",id);
 
       return View(data);
+
     }
 
     [HttpPost]
-    public ActionResult Edit(Home contact)
+    public ActionResult Edit(Contacts contact)
     {
       var dataContext = new PetaPoco.Database("sqladdress");
       dataContext.Update("contacts", "id", contact);
@@ -62,16 +75,16 @@ namespace MVCAngular.Controllers
     {
       var dataContext = new PetaPoco.Database("sqladdress");
 
-      var contact = dataContext.Single<Home>("SELECT * FROM contacts WHERE id=@0", id);
+      var contact = dataContext.Single<Contacts>("SELECT * FROM contacts WHERE id=@0", id);
 
       return View(contact);
     }
 
     [HttpPost]
-    public ActionResult delete(int id,Home home)
+    public ActionResult delete(int id,Contacts home)
     {
       var dataContext = new PetaPoco.Database("sqladdress");
-      dataContext.Delete<Home>(id);
+      dataContext.Delete<Contacts>(id);
 
       return RedirectToAction("DBView");
     }
@@ -79,7 +92,7 @@ namespace MVCAngular.Controllers
     public ActionResult details(int id)
     {
       var dataContext = new PetaPoco.Database("sqladdress");
-      var details = dataContext.Single<Home>("SELECT * FROM contacts WHERE id=@0", id);
+      var details = dataContext.Single<Contacts>("SELECT * FROM contacts WHERE id=@0", id);
 
       return View(details);
     }

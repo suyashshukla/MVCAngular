@@ -11,24 +11,24 @@ namespace MVCAngular.Controllers
 {
   public class DataController : ApiController
   {
-    IAPIService IAPIInterface;
+    ContactInterface contactService;
 
-    public DataController(IAPIService IAPIInterface)
+    public DataController(ContactInterface contactService)
     {
-      this.IAPIInterface = IAPIInterface;
+      this.contactService = contactService;
     }
 
     //READ ALL
     [HttpGet]
-    public IEnumerable<Home> getAllContacts()
+    public IEnumerable<Contacts> GetContacts()
     {
-      return IAPIInterface.getAllContacts();
+      return contactService.getAllContacts();
     }
 
 
-    public IEnumerable<Home> getSomeContacts(string query)
+    public IEnumerable<Contacts> getSomeContacts(string query)
     {
-      return IAPIInterface.getQueryContacts(query);
+      return contactService.getQueryContacts(query);
     }
 
     //READ SOME
@@ -37,28 +37,28 @@ namespace MVCAngular.Controllers
     [HttpGet]
     public IHttpActionResult getContact(int id)
     {
-      return Ok(IAPIInterface.getContact(id));
+      return Ok(contactService.getContact(id));
     }
 
     //CREATE
     [HttpPost]
-    public IHttpActionResult create([FromBody] Home contact)
+    public IHttpActionResult create([FromBody] Contacts contact)
     {
-      return Ok(IAPIInterface.create(contact));
+      return Ok(contactService.create(contact));
     }
 
     //UPDATE
     [HttpPut]
-    public IHttpActionResult update(Home contact)
+    public IHttpActionResult update(Contacts contact)
     {
-      return Ok(IAPIInterface.update(contact));
+      return Ok(contactService.update(contact));
     }
 
     //DELETE
     [HttpDelete]
     public IHttpActionResult delete(int id)
     {
-      return Ok(IAPIInterface.delete(id));
+      return Ok(contactService.delete(id));
     }
   }
 }
