@@ -47,7 +47,7 @@ namespace MVCAngular.Controllers
       var dataContext = new PetaPoco.Database("sqladdress");
       dataContext.Insert(contact);
 
-      return RedirectToAction("DBView");
+      return RedirectToAction("Index");
 
     }
 

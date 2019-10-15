@@ -6,7 +6,9 @@ using System.Web;
 
 namespace MVCAngular.Interfaces
 {
+
   public interface ContactInterface
+
   {
 
     IEnumerable<Contacts> getAllContacts();
@@ -22,4 +24,5 @@ namespace MVCAngular.Interfaces
     bool update(Contacts contact);
     
   }
+
 }

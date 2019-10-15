@@ -39,13 +39,13 @@ export class AppComponent implements OnInit {
   }
 
   addMockData() {
+
     this.contactService.getMock().subscribe((res: Home[]) => {
 
       var data = res.slice(0, 21);
 
       data.forEach(response => {
         this.contactService.postURL(response).subscribe((result) => {
-          console.log(response.name + " Added");
           this.fetchData();
         })
       });
@@ -53,9 +53,8 @@ export class AppComponent implements OnInit {
   }
 
   deleteContacts() {
-    this.contacts.forEach((contact) => {
+    this.contacts.forEach(contact => {
       this.contactService.deleteURL(contact).subscribe((response) => {
-        console.log(contact.name + " Deleted");
         this.fetchData();
       })
     })
