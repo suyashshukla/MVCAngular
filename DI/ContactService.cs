@@ -18,45 +18,37 @@ namespace MVCAngular.DI
       this.database = database;
     }
 
-    //READ ALL
-    [HttpGet]
-    public IEnumerable<Contacts> getAllContacts()
+
+    public IEnumerable<Contacts> Get()
     {
-      return database.list();
+      return database.Get();
+    }
+    
+    public IEnumerable<Contacts> GetQuery(string query)
+    {
+      return database.GetQuery(query);
     }
 
-    //READ
-    [HttpGet]
-    public Contacts getContact(int id)
+    public Contacts GetContact(int id)
     {
-      return database.read(id);
+      return database.GetContact(id);
     }
 
-    //CREATE
-    [HttpPost]
-    public bool create([FromBody] Contacts contact)
+    public bool Put(Contacts contact)
     {
-      return database.create(contact);
+      return database.PutContact(contact);
     }
 
-    //UPDATE
-    [HttpPut]
-    public bool update(Contacts contact)
+    public bool Post([FromBody] Contacts contact)
     {
-      return database.update(contact);
+      return database.PostContact(contact);
     }
 
-    //DELETE
-    [HttpDelete]
-    public bool delete(int id)
+    public bool Delete(int id)
     {
-      return database.delete(id);
+      return database.DeleteContact(id);
     }
 
-    public IEnumerable<Contacts> getQueryContacts(string query)
-    {
-      return database.suggestionList(query);
-    }
 
    
   }

@@ -9,16 +9,17 @@ namespace MVCAngular.DI
   public interface DataInterface
   {
 
-    bool create(Contacts contact);
+    IEnumerable<Contacts> Get();
 
-    Contacts read(int id);
+    IEnumerable<Contacts> GetQuery(string query);
 
-    bool update(Contacts contact);
+    Contacts GetContact(int id);
 
-    bool delete(int id);
+    bool PostContact(Contacts contact);
+    
+    bool PutContact(Contacts contact);
 
-    IEnumerable<Contacts> list();
+    bool DeleteContact(int id);
 
-    IEnumerable<Contacts> suggestionList(string query);
   }
 }

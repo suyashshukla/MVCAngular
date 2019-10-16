@@ -3,43 +3,55 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using MVCAngular.Models;
+using PetaPoco;
 
 namespace MVCAngular.DI
 {
   public class DataService : DataInterface
   {
 
-    PetaPoco.Database dataContext = new PetaPoco.Database("sqladdress");
+    Database dataContext;
+  
 
-    public bool create(Contacts contact)
+    public DataService(string connString)
     {
-      return dataContext.Insert(contact) != null ? true : false;
+      dataContext = new Database(connString);
     }
 
-    public bool delete(int id)
-    {
-      return dataContext.Delete(read(id)) == 1;
-    }
 
-    public IEnumerable<Contacts> list()
+    public IEnumerable<Contacts> Get()
     {
       return dataContext.Query<Contacts>("SELECT * FROM contacts");
     }
 
-    public Contacts read(int id)
+    public IEnumerable<Contacts> GetQuery(string query)
+    {
+      return dataContext.Query<Contacts>("SELECT * FROM contacts WHERE name LIKE '%" + query + "%'");
+    }
+
+    public Contacts GetContact(int id)
     {
       return dataContext.Single<Contacts>("SELECT * FROM contacts WHERE id=@0", id);
     }
 
-    public IEnumerable<Contacts> suggestionList(string query)
+    public bool PostContact(Contacts contact)
     {
-      return dataContext.Query<Contacts>("SELECT * FROM contacts WHERE name LIKE '%"+query+"%'");
+      return dataContext.Insert(contact) != null ? true : false;
     }
 
-    public bool update(Contacts contact)
+    public bool PutContact(Contacts contact)
     {
-      return dataContext.Update(contact)==1;
+      return dataContext.Update(contact) == 1;
     }
+
+    public bool DeleteContact(int id)
+    {
+      return dataContext.Delete(GetContact(id)) == 1;
+    }
+
+
+
+
 
 
 

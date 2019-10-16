@@ -1,5 +1,6 @@
 using AutoMapper;
 using MVCAngular.App_Start;
+using MVCAngular.DI;
 using MVCAngular.Models;
 using System;
 using System.Collections.Generic;
@@ -12,10 +13,21 @@ namespace MVCAngular.Controllers
 {
     public class HomeController : Controller
     {
+
+    public DataInterface dataInterface;
+
+    public HomeController(DataInterface dataInterface)
+    {
+      this.dataInterface = dataInterface;
+    }
+
         // GET: Home
         public ActionResult Index()
         {
-      return View();
+
+          //return dataInterface.GetContact(2739).address;
+
+          return View(); 
         }
 
     public ActionResult DBView()

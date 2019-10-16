@@ -18,47 +18,34 @@ namespace MVCAngular.Controllers
       this.contactService = contactService;
     }
 
-    //READ ALL
-    [HttpGet]
-    public IEnumerable<Contacts> GetContacts()
+    public IEnumerable<Contacts> Get()
     {
-      return contactService.getAllContacts();
+      return contactService.Get();
     }
 
-
-    public IEnumerable<Contacts> getSomeContacts(string query)
+    public IEnumerable<Contacts> GetQuery(string query)
     {
-      return contactService.getQueryContacts(query);
+      return contactService.GetQuery(query);
     }
 
-    //READ SOME
-
-    //READ ONE
-    [HttpGet]
-    public IHttpActionResult getContact(int id)
+    public IHttpActionResult GetContact(int id)
     {
-      return Ok(contactService.getContact(id));
+      return Ok(contactService.GetContact(id));
     }
 
-    //CREATE
-    [HttpPost]
-    public IHttpActionResult create([FromBody] Contacts contact)
+    public IHttpActionResult Post([FromBody] Contacts contact)
     {
-      return Ok(contactService.create(contact));
+      return Ok(contactService.Post(contact));
     }
 
-    //UPDATE
-    [HttpPut]
-    public IHttpActionResult update(Contacts contact)
+    public IHttpActionResult Put(Contacts contact)
     {
-      return Ok(contactService.update(contact));
-    }
+      return Ok(contactService.Put(contact));
+    } 
 
-    //DELETE
-    [HttpDelete]
-    public IHttpActionResult delete(int id)
+    public IHttpActionResult Delete(int id)
     {
-      return Ok(contactService.delete(id));
+      return Ok(contactService.Delete(id));
     }
   }
 }

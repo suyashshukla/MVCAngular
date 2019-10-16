@@ -6,7 +6,7 @@ using System.Web;
 
 namespace MVCAngular.DI
 {
-  public class AutoMapperService
+  public class AutoMapperService : AutoMapperInterface
   {
 
     private IMapper mapper;
@@ -16,5 +16,9 @@ namespace MVCAngular.DI
       this.mapper = iMapper;
     }
 
+    public IMapper getInstance()
+    {
+      return mapper;
+    }
   }
 }

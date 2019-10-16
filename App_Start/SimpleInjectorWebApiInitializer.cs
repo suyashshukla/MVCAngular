@@ -32,8 +32,8 @@ namespace MVCAngular.App_Start
         private static void InitializeContainer(Container container)
         {
        
-      container.Register<ContactInterface, ContactService>(Lifestyle.Scoped);
-      container.Register<DataInterface, DataService>(Lifestyle.Scoped);
+      container.Register<ContactInterface, ContactService>();
+      container.Register<DataInterface>(()=>new DataService("sqlAddress"));
 
     }
     }

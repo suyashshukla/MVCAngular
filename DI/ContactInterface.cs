@@ -11,17 +11,18 @@ namespace MVCAngular.Interfaces
 
   {
 
-    IEnumerable<Contacts> getAllContacts();
+    IEnumerable<Contacts> Get();
 
-    IEnumerable<Contacts> getQueryContacts(string query);
+    IEnumerable<Contacts> GetQuery(string query);
 
-    Contacts getContact(int id);
+    Contacts GetContact(int id);
 
-    bool create(Contacts contact);
+    bool Put(Contacts contact);
 
-    bool delete(int id);
+    bool Post(Contacts contact);
 
-    bool update(Contacts contact);
+    bool Delete(int id);
+
     
   }
 

@@ -149,3 +149,7 @@ C:\Users\suyash.s\Desktop\Sherlock\MVCAngular\MVCAngular\obj\Debug\MVCAngular.pd
 C:\Users\suyash.s\Desktop\Sherlock\MVCAngular\MVCAngular\obj\Debug\MVCAngular.csprojAssemblyReference.cache
 C:\Users\suyash.s\Desktop\Sherlock\MVCAngular\MVCAngular\bin\SimpleInjector.Integration.WebApi.dll
 C:\Users\suyash.s\Desktop\Sherlock\MVCAngular\MVCAngular\bin\SimpleInjector.Integration.WebApi.xml
+C:\Users\suyash.s\Desktop\Sherlock\MVCAngular\MVCAngular\bin\SimpleInjector.Integration.Web.dll
+C:\Users\suyash.s\Desktop\Sherlock\MVCAngular\MVCAngular\bin\SimpleInjector.Integration.Web.Mvc.dll
+C:\Users\suyash.s\Desktop\Sherlock\MVCAngular\MVCAngular\bin\SimpleInjector.Integration.Web.xml
+C:\Users\suyash.s\Desktop\Sherlock\MVCAngular\MVCAngular\bin\SimpleInjector.Integration.Web.Mvc.xml
